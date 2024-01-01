@@ -1,4 +1,7 @@
 "use strick";
+
+///////////////////////// modal game ///////////////////////////////
+/*
 // document.querySelector(".modal").classList.remove("hidden");
 // document.querySelector(".overlay").classList.remove("hidden");
 const modalEl = document.querySelector(".modal");
@@ -22,7 +25,6 @@ document.querySelector(".overlay").addEventListener("click", function () {
 });
 
 document.addEventListener("keydown", function (e) {
-  console.log(e.key);
   if (e.key === "Enter" && modalEl.classList.contains("hidden")) {
     document.querySelector(".modal").classList.remove("hidden");
     document.querySelector(".overlay").classList.remove("hidden");
@@ -36,4 +38,4 @@ document.addEventListener("keydown", function (e) {
     document.querySelector(".modal").classList.add("hidden");
     document.querySelector(".overlay").classList.add("hidden");
   }
-});
+});*/
