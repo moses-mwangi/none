@@ -147,12 +147,17 @@ console.log(luft);
 book.call(eurowing, 23, "sarah williams");
 console.log(eurowing);
 
-/////////aply method//////////
+/////////apply method//////////
 const flightData = [7000, "Joshua"];
 // book.apply(eurowing, flightData);
+//book.apply(luft, flightData);
 //or//
 book.call(eurowing, ...flightData);
+book.call(luft, ...flightData);
 
+//////////////////////// bind method ///////////////////
 const bookEW = book.bind(eurowing);
+const bookluft = book.bind(luft);
+
 bookEW(489000, "kamashu ninja");
 console.log(eurowing);
