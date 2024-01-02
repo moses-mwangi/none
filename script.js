@@ -116,7 +116,7 @@ const greetHey = greet("Hey");
 greetHey("mwangi");
 greet("Hello")("moses");*/
 
-const luft = {
+/*const luft = {
   Airline: "kenya airways",
   iatCode: "LHB",
   booking: [],
@@ -161,3 +161,34 @@ const bookluft = book.bind(luft);
 
 bookEW(489000, "kamashu ninja");
 console.log(eurowing);
+const bookSpecific = book.bind(eurowing, 5050);
+bookSpecific("jonhteh");
+bookSpecific("mr bundo");
+
+///////////////// with event listner //////////////////
+luft.plane = 300;
+luft.buyPlane = function () {
+  this.plane++;
+  console.log(this.plane);
+};
+document
+  .querySelector("body")
+  .addEventListener("click", luft.buyPlane.bind(luft));*/
+
+// ////////////////// partial application /////////////////////////////
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVat = addTax.bind(null, 0.23);
+// const addVat = (value) => value + value * 0.23;
+
+console.log(addVat(100));
+
+const addTax2 = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+const addVat2 = addTax2(0.23);
+console.log(addVat2(100));
+// console.log(addVat2(23));
