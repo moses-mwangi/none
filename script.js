@@ -47,31 +47,31 @@ document.addEventListener("keydown", function (e) {
 //   console.log(Booking);
 // };
 // creatBooking("LB23");
-
-// const flight = "LB999";
-// const moses = { name: "moses mwangi", passport: 23575398932 };
-
-// const check = function (flightNun, passager) {
-//   flightNun = "LG90";
-//   passager.name = "MR" + " " + passager.name;
-//   if (passager.passport === 23575398932) {
-//     alert("check In");
-//   } else {
-//     alert("wrong passport");
-//   }
-// };
-// check(flight, moses);
-// console.log(flight);
-// console.log(moses);
-
-// const newPass = function (person) {
-//   person.passport = Math.trunc(Math.random() * 100000000000000);
-// };
-// newPass(moses);
-// check(flight, moses);
-
-/////////// function accepting call back///////////
 /*
+const flight = "LB999";
+const moses = { name: "moses mwangi", passport: 23575398932 };
+
+const check = function (flightNun, passager) {
+  flightNun = "LG90";
+  passager.name = "MR" + " " + passager.name;
+  if (passager.passport === 23575398932) {
+    alert("check In");
+  } else {
+    alert("wrong passport");
+  }
+};
+check(flight, moses);
+console.log(flight);
+console.log(moses);
+
+const newPass = function (person) {
+  person.passport = Math.trunc(Math.random() * 100000000000000);
+};
+newPass(moses);
+check(flight, moses);
+*/
+/////////// function accepting call back///////////
+
 const oneWord = function (str) {
   return str.replaceAll(" ", "").toLowerCase();
 };
@@ -114,7 +114,7 @@ const greet = (greeting) => (name) => console.log(`${greeting} ${name}`);
 
 const greetHey = greet("Hey");
 greetHey("mwangi");
-greet("Hello")("moses");*/
+greet("Hello")("moses");
 
 /*const luft = {
   Airline: "kenya airways",
@@ -175,6 +175,7 @@ document
   .querySelector("body")
   .addEventListener("click", luft.buyPlane.bind(luft));*/
 
+/*
 // ////////////////// partial application /////////////////////////////
 const addTax = (rate, value) => value + value * rate;
 console.log(addTax(0.1, 200));
@@ -192,3 +193,83 @@ const addTax2 = function (rate) {
 const addVat2 = addTax2(0.23);
 console.log(addVat2(100));
 // console.log(addVat2(23));
+*/
+///////////////// code challenge ///////////////////
+/*
+const poll = {
+  question: "Whats your fav programming language ?",
+  optional: ["Javascript", "Python", "rust", "c++"],
+  answers: new Array(4).fill(0),
+};
+for (const [first, sec] of option.entries()) {
+  console.log(`${first + 1}:${sec}`);
+}
+
+const registerNewNumber = function (quiz, option) {
+  console.log(option);
+  // const prime = prompt(quiz);
+};
+
+registerNewNumber(poll.question, mine);
+const mine = poll.optional.entries();
+*/
+//////////////// imediate invoke function //////////////////////
+
+const runOnce = function () {
+  console.log("This will never run again");
+};
+runOnce();
+
+(function () {
+  console.log("This will never run again");
+})();
+(() => console.log("This will ALSO never run again"))();
+
+{
+  const private = "This is a private propety";
+}
+// console.log(private);
+//////////////////////////// closure ///////////////////////////////
+
+const secureBooking = function () {
+  let passagerCount = 0;
+  return function () {
+    passagerCount++;
+    console.log(`${passagerCount} passagers`);
+  };
+};
+
+const booker = secureBooking();
+booker();
+// console.dir(booker);
+
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 50;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+g();
+f();
+
+h();
+f();
+
+const boardPassager = function (n, wait) {
+  const perGroup = n / 3;
+  setTimeout(function () {
+    console.log(`we are now boarding all the ${n}`);
+    console.log(`we are only bording ${perGroup} per group`);
+  }, 4 * 1000);
+  console.log(`will start bording in ${wait} seconds`);
+};
+
+boardPassager(180, 3);
