@@ -120,6 +120,7 @@ const luft = {
   Airline: "kenya airways",
   iatCode: "LHB",
   booking: [],
+
   book(flightNun, name) {
     console.log(
       `${name} book a seat on ${this.Airline} flight ${this.iatCode}${flightNun}`
@@ -133,15 +134,25 @@ luft.book(23, "moses mwangi");
 luft.book(23, "mwangi");
 
 const eurowing = {
-  name: "Eurowings",
+  Airline: "Eurowings",
   iatCode: "EW",
   booking: [],
 };
 
 const book = luft.book;
-// console.log(book);
-// book(23, "sarah williams");
-book.call(eurowing, 23, "sarah williams");
-console.log(eurowing);
+
 book.call(luft, 900, "Wanjiro");
 console.log(luft);
+
+book.call(eurowing, 23, "sarah williams");
+console.log(eurowing);
+
+/////////aply method//////////
+const flightData = [7000, "Joshua"];
+// book.apply(eurowing, flightData);
+//or//
+book.call(eurowing, ...flightData);
+
+const bookEW = book.bind(eurowing);
+bookEW(489000, "kamashu ninja");
+console.log(eurowing);
