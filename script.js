@@ -71,7 +71,7 @@ newPass(moses);
 check(flight, moses);
 */
 /////////// function accepting call back///////////
-
+/*
 const oneWord = function (str) {
   return str.replaceAll(" ", "").toLowerCase();
 };
@@ -96,25 +96,27 @@ const transformer = function (str, fn) {
 transformer("Javascript is just awesome", upperWord);
 transformer("Javascript is just awesome ????", oneWord);
 transformer("Javascript is just awesome ////////////", word);
-
+*/
 /////////////////////////returning function////////////
 
-//const greet = function (greeting) {
-//   return function (name) {
-//     console.log(`${greeting} ${name}`);
-//   };
-//};
+c; /*const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};*/
 
-// const greet = (greeting) =>
-//   function (name) {
-//     console.log(`${greeting} ${name}`);
-//   };
+/*const greet = (greeting) =>
+  function (name) {
+    console.log(`${greeting} ${name}`);
+  };*/
 
-const greet = (greeting) => (name) => console.log(`${greeting} ${name}`);
+/*const greet = (greeting) => (name) => console.log(`${greeting} ${name}`);
 
 const greetHey = greet("Hey");
 greetHey("mwangi");
-greet("Hello")("moses");
+greet("Hello")("moses");*/
+
+////////////////////////// calll and aplly methods/////////////////////
 
 /*const luft = {
   Airline: "kenya airways",
