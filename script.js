@@ -383,3 +383,4 @@ console.log(sum, mult, max, min);
 console.log(compare);
 
 console.log("moses mwangi");
+console.log("second branch to merge to new branch");
