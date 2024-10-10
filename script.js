@@ -381,3 +381,5 @@ const compare = arr2.reduce((arr, cur) => {
 console.log(sum, mult, max, min);
 
 console.log(compare);
+
+console.log("moses mwangi");
