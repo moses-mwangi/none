@@ -99,7 +99,7 @@ transformer("Javascript is just awesome ////////////", word);
 */
 /////////////////////////returning function////////////
 
-c; /*const greet = function (greeting) {
+/*const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}`);
   };
@@ -217,61 +217,167 @@ const mine = poll.optional.entries();
 */
 //////////////// imediate invoke function //////////////////////
 
-const runOnce = function () {
-  console.log("This will never run again");
-};
-runOnce();
+// const runOnce = function () {
+//   console.log("This will never run again");
+// };
+// runOnce();
 
-(function () {
-  console.log("This will never run again");
-})();
-(() => console.log("This will ALSO never run again"))();
+// (function () {
+//   console.log("This will never run again");
+// })();
+// (() => console.log("This will ALSO never run again"))();
 
-{
-  const private = "This is a private propety";
-}
+// {
+//   const private = "This is a private propety";
+// }
 // console.log(private);
 //////////////////////////// closure ///////////////////////////////
 
-const secureBooking = function () {
-  let passagerCount = 0;
-  return function () {
-    passagerCount++;
-    console.log(`${passagerCount} passagers`);
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+
+  this.greet = function () {
+    console.log("Hello, my name is " + this.name);
   };
+}
+
+Person.prototype.work = function () {
+  console.log(this.name + " is " + this.age + " years old");
 };
 
-const booker = secureBooking();
-booker();
-// console.dir(booker);
+// const person1 = new Person("Moses Mwangi", 23);
+// const person2 = new Person("John Kamau", 28);
 
-let f;
-const g = function () {
-  const a = 23;
-  f = function () {
-    console.log(a * 2);
-  };
-};
+// console.log(person1, person2);
+// person2.work();
 
-const h = function () {
-  const b = 50;
-  f = function () {
-    console.log(b * 2);
-  };
-};
-g();
-f();
+// class People {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
 
-h();
-f();
+//   greet() {
+//     console.log(
+//       `Hello, my name is ${this.name} and I am ${this.age} years old.`
+//     );
+//   }
+// }
 
-const boardPassager = function (n, wait) {
-  const perGroup = n / 3;
-  setTimeout(function () {
-    console.log(`we are now boarding all the ${n}`);
-    console.log(`we are only bording ${perGroup} per group`);
-  }, 4 * 1000);
-  console.log(`will start bording in ${wait} seconds`);
-};
+// const people1 = new People("Pete Mburu", 23);
 
-boardPassager(180, 3);
+// console.log(people1);
+// people1.greet();
+
+// class Rectangle {
+//   constructor(height, width) {
+//     this.height = height;
+//     this.width = width;
+//   }
+
+//   get area() {
+//     return this.height * this.width;
+//   }
+
+//   set updateHeight(newHeight) {
+//     this.height = newHeight;
+//   }
+// }
+
+// const rect = new Rectangle(10, 5);
+
+// console.log(rect, rect.area);
+// console.log(rect.height);
+
+// rect.updateHeight = 20;
+
+// console.log(rect.height, rect.area);
+
+// class Animal {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   speak() {
+//     console.log(`${this.name} makes a noise.`);
+//   }
+// }
+
+// class Dog extends Animal {
+//   constructor(name, breed) {
+//     super(name);
+
+//     this.breed = breed;
+//   }
+
+//   bark() {
+//     console.log(`${this.name} barks.`);
+//   }
+// }
+
+// const d1 = new Dog("Buddy", "Golden Retriever");
+
+// console.log(d1);
+
+// d1.bark();
+// d1.name;
+// d1.speak();
+
+// const arr = [10, 20, 5, 30];
+
+// const max = Math.max(...arr);
+// const min = Math.min(...arr);
+// const sum = arr.reduce((a, b) => a + b);
+
+// console.log(max);
+// console.log(min);
+// console.log(sum);
+
+// const arr = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3];
+// const stg = ["moses", "ambrella", "zebra", "cup"];
+// const date = [
+//   "2024-01-15",
+//   "2023-12-25",
+//   "March 1, 2024",
+//   "08/10/2023",
+//   new Date(2024, 5, 1),
+//   "1999-09-21T09:15:00Z",
+// ];
+// let maxi = 0;
+
+// for (let i = 0; i <= arr.length; i++) {
+//   if (arr[i] > maxi) {
+//     maxi = arr[i];
+//   }
+// }
+// console.log(stg.sort((a, b) => b.localeCompare(a)));
+// console.log(date.sort((a, b) => new Date(b) - new Date(a)));
+// console.log("maxValue: ", maxi); // Output: 9
+// console.log("minValue: ", min); // Output: 9
+
+//////////////////arra looping //////////////////
+const stg = ["moses", "ambrella", "zebra", "cup"];
+
+for (let i = 0; i <= stg.length; i++) {
+  console.log(stg[i]);
+}
+
+for (let value of stg) {
+  console.log(value);
+}
+
+const arr1 = [1, 2, 3];
+const arr2 = [2, 4, 5];
+
+const sum = arr2.reduce((arr, cur) => arr + cur, 0);
+const mult = arr2.reduce((arr, cur) => arr * cur, 1);
+const max = arr2.reduce((arr, cur) => (cur > arr ? cur : arr), arr2[0]);
+const min = arr2.reduce((arr, cur) => (cur < arr ? cur : arr), arr2[0]);
+const compare = arr2.reduce((arr, cur) => {
+  console.log(cur);
+});
+
+console.log(sum, mult, max, min);
+
+console.log(compare);
